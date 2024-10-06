@@ -66,10 +66,3 @@ To run this algorithm, we recommend to follow the steps detailed in [detect.ipyn
 - [Marko Mojsov](//TODO: add email)
 - [Ionel Pop](//TODO: add email)
 
-
-
-
-
-
-
-
