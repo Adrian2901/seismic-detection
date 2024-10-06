@@ -8,7 +8,7 @@ Planetary seismology missions struggle with the power requirements necessary to 
 - LTA/STA triggering, was found to be unrealiable at cutting through the noise in the raw data
 - Machine Learning Model, considered unreliable by NASA and ourselves - which is why we went with a deterministic solution
 
-## How to run the project 
+## How to setup the project
 
 ### Prerequisites
 - [Python 3.9 or higher](https://www.python.org/)
@@ -31,24 +31,35 @@ pip install -r requirements.txt
 ```
 
 ### Project Structure
-The project directory should look like this
-// TODO: Fix this
+The project structure should look like this
 ```bash
-C:.
-├───discard
-├───space_apps_2024_seismic_detection
-│   ├───data
-│   │   ├───lunar
-│   │   └───mars
-│   │       ├───test
-│   │       └───training
-│   │           ├───catalogs
-│   │           ├───data
-│   │           └───plot
-│   ├───example_file_1.txt
-│   ├───example_config.json
-│   └───README.md
+.
+├───space_apps_2024_seismic_detection # Directory which contains data from the NASA missions
+│   └───data
+│       ├───lunar
+│       └───mars
+│           ├───test
+│           └───training
+│               ├───catalogs
+│               ├───data
+│               └───plot
+├── discard # Directory which contains old test files
+│   ├── csv-plotting.py
+│   ├── filter-test.ipynb
+│   ├── ltasta.ipynb
+│   ├── mseed-plotting.py
+│   ├── plotting.ipynb
+│   └── testing_ai.py
+├── output # Directory which contains the output mSEED files
+│   └── catalog.csv # This file contains the output of our algorithm
+├── filter.py # Main filter algorithm
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
+
+## How to run the project
+To run this algorithm, we recommend to follow the steps detailed in [detect.ipynb](./detect.ipynb). There are four main sections in this notebook: `Import depedencies`, `Select the dataset`, `Detect and plot seismic events`, `export detected seismic events`.
 
 ### Contributors
 - [Adrian Hassa](//TODO: add email)
