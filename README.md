@@ -67,4 +67,4 @@ To run this algorithm, we recommend to follow the steps detailed in [detect.ipyn
 | ------------- | ------------- | ------------- |
 | **Adrian Hassa**  | <adrianhassa@gmail.com>  | [@Adrian2901](https://github.com/Adrian2901) |
 | **Marko Mojsov** | <markomojsov@gmail.com> | [@Flam30](https://github.com/Flam30) |
-| **Ionel Pop**  | <ionelalexandru.pop@gmail.com> |[@IonelPopJara](https://github.com/IonelPopJara) |
+| **Ionel Pop**<sup>[*](https://www.youtube.com/@MultsElMesco)</sup>  | <ionelalexandru.pop@gmail.com> | [@IonelPopJara](https://github.com/IonelPopJara) |
