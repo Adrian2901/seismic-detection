@@ -62,7 +62,7 @@ The project structure should look like this
 To run this algorithm, we recommend to follow the steps detailed in [detect.ipynb](./detect.ipynb). There are four main sections in this notebook: `Import depedencies`, `Select the dataset`, `Detect and plot seismic events`, `export detected seismic events`.
 
 ### Contributors
-- [Adrian Hassa](//TODO: add email)
-- [Marko Mojsov](//TODO: add email)
-- [Ionel Pop](//TODO: add email)
+- Adrian Hassa (<adrianhassa@gmail.com>)
+- Marko Mojsov (<markomojsov@gmail.com>)
+- Ionel Pop (<ionelalexandru.pop@gmail.com>)
 
