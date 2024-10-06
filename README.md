@@ -1,20 +1,23 @@
 # seismic-detection
 
-## Things we know
+## Mission
+Planetary seismology missions struggle with the power requirements necessary to send continuous seismic data back to Earth. But only a fraction of this data is scientifically useful. Therefore we created a solution which would allow the lander to distinguish signals from noise, and send back only the data which matters.
 
-- Reduce noise from a signal
-- Reduce size so sending it requires more energy ?
-- Algorithm to diferentiate
-- Other planets may have different signals so we have to be careful with that
+## Solution
+1.
+2.
+3.
 
-## What to do
+## Discarded solutions, why?
+- Single Window Maeda-AIC (SWM-AIC) algorithm, did not fit our 1C data well since it is more sueful for 3C
+- LTA/STA triggering, was found to be unrealiable at cutting through the noise in the raw data
+- Machine Learning Model, considered unreliable by NASA and ourselves - which is why we went with a deterministic solution
 
-- Write a computer program to analyze the data
-- There is as jupyter notebook with examples to get started
-- There are also some datasets that we can use if we want to train models
-- Useful algorithms:
-    - Short-term average ratio (STA)
-    - Long-term average ratio (LTA)
-    - Machine learning techniques??
-- We should first look at the data and see what we can find
+## How to run the project 
+1. cd into ```xxxx```
+2. run ```aaaaa```
+
+
+
+
 
