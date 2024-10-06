@@ -35,7 +35,7 @@ def filter(file_st):
     max_length = 0
     current_length = 0
     current_zeroes = 0
-    max_number_of_zeroes = 50000
+    max_number_of_zeroes = 10000
     
     for i in range(len(filtered_velocities)):
         if filtered_velocities[i] > default_value:
