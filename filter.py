@@ -5,20 +5,24 @@ from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 import os
 
+# TODO: Change this for the testing data
 # Get the catalogue to find the actual arrival time
+print('Reading catalogue...')
 cat_directory = './space_apps_2024_seismic_detection/data/lunar/training/catalogs/'
 cat_file = cat_directory + 'apollo12_catalog_GradeA_final.csv'
 cat = pd.read_csv(cat_file)
-print(cat)
 
+# Choose a file from the catalogue
 # row = cat.iloc[6]
 row = cat.iloc[9]
+print('Choosing file:', row.filename)
 arrival_time = datetime.strptime(row['time_abs(%Y-%m-%dT%H:%M:%S.%f)'],'%Y-%m-%dT%H:%M:%S.%f')
 
 # Read the mseed file
 test_filename = row.filename
 data_directory = './space_apps_2024_seismic_detection/data/lunar/training/data/S12_GradeA/'
 mseed_file = f'{data_directory}{test_filename}.mseed'
+print('Reading mseed file:', mseed_file)
 st = read(mseed_file)
 
 # Copy the original stream to avoid modifying the original data
@@ -31,8 +35,6 @@ starttime = trace.stats.starttime
 npts = trace.stats.npts
 times = trace.times('timestamp')
 velocities = trace.data
-print('Velocities')
-print(velocities)
 
 # Create a DataFrame with time and velocity data
 df = pd.DataFrame({
@@ -42,21 +44,18 @@ df = pd.DataFrame({
 
 df['abs_velocity(m/s)'] = np.abs(df['velocity(m/s)'])
 
+# Print the sorted abs_velocities
+print('Sorted absolute velocities:')
+print(np.sort(df['abs_velocity(m/s)'])[::-1])
+
 # Filter out rows where velocity is below a certain threshold
 threshold = 2e-9
 default_value = 0  # You can change this to any other value, such as a small constant
 filtered_df = df[df['abs_velocity(m/s)'] >= threshold]
 
+# Filter out rows where absolute velocity is below a certain threshold
 # Replace velocities below the threshold with the default value
 df['filtered_velocity(m/s)'] = np.where(df['abs_velocity(m/s)'] >= threshold, df['velocity(m/s)'], default_value)
-
-# Filter out rows where absolute velocity is below a certain threshold
-# filtered_df = df['velocity(m/s)']
-# filtered_df = df[(df['velocity(m/s)'] >= threshold) | (df['velocity(m/s)'] <= -threshold)]
-# filtered_df = df[(df['velocity(m/s)'] <= threshold) & (df['velocity(m/s)'] >= -threshold)]
-
-print('Filtered Velocities')
-print(filtered_df)
 
 # Create a figure with two subplots (1 row, 2 columns)
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))  # Adjust size as needed
